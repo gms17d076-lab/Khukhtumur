@@ -3,112 +3,193 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Миний бяцхан ертөнц</title>
+    <title>Э.Хөхтөмөрийн ертөнц</title>
     <link href="https://fonts.googleapis.com/css2?family=Comfortaa:wght@400;700&display=swap" rel="stylesheet">
     <style>
         body {
             font-family: 'Comfortaa', cursive;
-            background-color: #f0f8ff;
+            background: linear-gradient(135deg, #f0f8ff 0%, #ffe4e1 100%);
             color: #333;
             margin: 0;
-            padding: 0;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+        }
+
+        /* Эхлэх дэлгэц */
+        #welcome-screen {
             text-align: center;
+            transition: opacity 0.8s ease;
         }
-        header {
-            background-color: #ffb6c1;
-            padding: 50px;
+
+        .start-btn {
+            background-color: #ff69b4;
             color: white;
-            border-bottom-left-radius: 50% 20px;
-            border-bottom-right-radius: 50% 20px;
-        }
-        .container {
-            max-width: 800px;
-            margin: auto;
-            padding: 20px;
-        }
-        section {
-            background: white;
-            margin: 20px 0;
-            padding: 20px;
-            border-radius: 20px;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
-        }
-        h2 { color: #ff69b4; }
-        .gallery img {
-            width: 100%;
-            max-width: 300px;
-            margin: 10px;
-            border-radius: 15px;
+            border: none;
+            padding: 20px 40px;
+            font-size: 1.5rem;
+            border-radius: 50px;
+            cursor: pointer;
+            box-shadow: 0 4px 15px rgba(255, 105, 180, 0.4);
             transition: transform 0.3s;
         }
-        .gallery img:hover { transform: scale(1.05); }
-        .music-control {
+
+        .start-btn:hover { transform: scale(1.1); }
+
+        /* Үндсэн агуулга (нуугдсан байх) */
+        #main-content {
+            display: none;
+            width: 100%;
+            max-width: 600px;
+            text-align: center;
+            padding: 20px;
+        }
+
+        header h1 { color: #ff69b4; margin-bottom: 30px; }
+
+        /* Товчлууруудын загвар */
+        .menu-btn {
+            background-color: white;
+            color: #ff69b4;
+            border: 2px solid #ff69b4;
+            width: 100%;
+            padding: 15px;
+            margin: 10px 0;
+            border-radius: 15px;
+            font-size: 1.1rem;
+            cursor: pointer;
+            font-weight: bold;
+            transition: all 0.3s;
+        }
+
+        .menu-btn:hover {
+            background-color: #ff69b4;
+            color: white;
+        }
+
+        /* Мэдээлэл харуулах хэсэг */
+        .info-card {
+            display: none;
+            background: white;
+            margin-top: 20px;
+            padding: 25px;
+            border-radius: 20px;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+            animation: fadeIn 0.5s ease;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .gallery img {
+            width: 100%;
+            border-radius: 15px;
+            margin-bottom: 10px;
+        }
+
+        .music-toggle {
             position: fixed;
             bottom: 20px;
             right: 20px;
-            background: #ff69b4;
-            color: white;
-            padding: 10px;
-            border-radius: 50px;
+            background: rgba(255, 255, 255, 0.8);
+            border-radius: 50%;
+            width: 50px;
+            height: 50px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
             cursor: pointer;
+            font-size: 1.5rem;
         }
-        ul { list-style: none; padding: 0; }
-        li { margin: 10px 0; font-size: 1.1em; }
     </style>
 </head>
 <body>
 
-    <header>
-        <h1>🌟 Хүүгийн минь ертөнц 🌟</h1>
-        <p>Хамгийн нандин дурсамжуудын цуглуулга</p>
-    </header>
+    <div id="welcome-screen">
+        <h1 style="color: #ff69b4; margin-bottom: 20px;">🌟 Хүүгийн минь ертөнц 🌟</h1>
+        <button class="start-btn" onclick="startExperience()">Орох ✨</button>
+    </div>
 
-    <div class="container">
-        <section>
-            <h2>👶 Анх төрсөн түүх</h2>
-            <p>Манай хүү Э.Хөхтөмөр 2024 оны 07 сарын 26-нд, 22:16 минутад анхлан мэндэлж, бидний амьдралд гэрэл гэгээ авчирсан билээ. Анх төрөх үед хөл нь маш сонин нугаларсан байсан нь инээдтэй санагдаад төрөх орон дээр байхдаа хамгийн түрүүнд аавд нь зурагыг нь явуулж үзүүлж байсан.  </p>
-            <p><strong>Анх хэлсэн үг:</strong> "мама-мама" (2026 он 3 сар)</p>
-        </section>
+    <div id="main-content">
+        <header>
+            <h1>Э.Хөхтөмөр</h1>
+        </header>
 
-        <section>
-            <h2>🎨 Хобби ба Сонирхол</h2>
-            <ul>
-                <li>🧩 Тоглох дуртай тоглоом: Лего /ямар нэг зүйлийг дээш нь өрөх/, Машин</li>
-                <li>🍎 Идэх дуртай жимс: Алим, Гадил</li>
-                <li>🍜 Дуртай хоол: Будаатай  шөл</li>
-                <li>⚽ Хобби: юманд авирах, ширээн дээр гарах, гангалах</li>
+        <button class="menu-btn" onclick="showSection('birth')">👶 Анх төрсөн түүх</button>
+        <button class="menu-btn" onclick="showSection('hobby')">🎨 Хобби ба Сонирхол</button>
+        <button class="menu-btn" onclick="showSection('photos')">📸 Өхөөрдөм зургууд</button>
+
+        <div id="birth" class="info-card">
+            <h2>Анх төрсөн түүх</h2>
+            <p>Манай хүү Э.Хөхтөмөр 2024 оны 07 сарын 26-нд, 22:16 минутад анхлан мэндэлж, бидний амьдралд гэрэл гэгээ авчирсан билээ.</p>
+            <p>Анх төрөх үед хөл нь маш сонин нугаларсан байсан нь инээдтэй санагдаад төрөх орон дээр байхдаа хамгийн түрүүнд аавд нь зургийг нь явуулж үзүүлж байсан.</p>
+            <hr>
+            <p><strong>Анх хэлсэн үг:</strong> "мама-мама" <br><small>(2026 он 3 сар)</small></p>
+        </div>
+
+        <div id="hobby" class="info-card">
+            <h2>Хобби ба Сонирхол</h2>
+            <ul style="text-align: left; line-height: 1.8;">
+                <li>🧩 <b>Тоглоом:</b> Лего өрөх, Машин</li>
+                <li>🍎 <b>Жимс:</b> Алим, Гадил</li>
+                <li>🍜 <b>Хоол:</b> Будаатай шөл</li>
+                <li>⚽ <b>Хобби:</b> Юманд авирах, ширээн дээр гарах, гангалах</li>
             </ul>
-        </section>
+        </div>
 
-        <section class="gallery">
-            <h2>📸 Өхөөрдөм зургууд</h2>
+        <div id="photos" class="info-card gallery">
+            <h2>Зургийн цомог</h2>
             <img src="IMG_5856.jpeg" alt="Зураг 1">
             <img src="IMG_5864.jpeg" alt="Зураг 2">
             <img src="IMG_5917.jpeg" alt="Зураг 3">
             <img src="IMG_6891.jpeg" alt="Зураг 4">
             <img src="IMG_7134.jpeg" alt="Зураг 5">
-        </section>
+            <img src="IMG_7575.jpeg" alt="Зураг 5">
+        </div>
     </div>
 
-    <div class="music-control" onclick="toggleMusic()">🎵 Хөгжим асаах/унтраах</div>
     <audio id="bgMusic" loop>
         <source src="music.mp3" type="audio/mpeg">
-        Таны хөтөч дуу дэмжихгүй байна.
     </audio>
 
+    <div class="music-toggle" onclick="toggleMusic()">🎵</div>
+
     <script>
-        var music = document.getElementById("bgMusic");
-        function toggleMusic() {
-            if (music.paused) {
-                music.play();
-            } else {
-                music.pause();
-            }
+        const music = document.getElementById("bgMusic");
+
+        function startExperience() {
+            // Эхлэх дэлгэцийг нуух
+            document.getElementById("welcome-screen").style.opacity = "0";
+            setTimeout(() => {
+                document.getElementById("welcome-screen").style.display = "none";
+                // Үндсэн агуулгыг гаргаж ирэх
+                document.getElementById("main-content").style.display = "block";
+                // Дуу тоглуулах
+                music.play().catch(e => console.log("Дуу тоглуулахад алдаа гарлаа"));
+            }, 800);
         }
-        // Хөтчийн дүрмийн дагуу хэрэглэгч нэг удаа дарсны дараа дуу явж эхэлнэ
-        window.addEventListener('click', function() {
-            music.play();
-        }, { once: true });
+
+        function showSection(sectionId) {
+            // Бүх картыг нуух
+            const cards = document.querySelectorAll('.info-card');
+            cards.forEach(card => card.style.display = 'none');
+            
+            // Сонгосон картыг харуулах
+            const selected = document.getElementById(sectionId);
+            selected.style.display = 'block';
+            
+            // Дэлгэцийг доош нь гүйлгэх
+            selected.scrollIntoView({ behavior: 'smooth' });
+        }
+
+        function toggleMusic() {
+            if (music.paused) music.play();
+            else music.pause();
+        }
     </script>
 
 </body>
