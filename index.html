@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="mn">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Миний бяцхан ертөнц</title>
+    <link href="https://fonts.googleapis.com/css2?family=Comfortaa:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Comfortaa', cursive;
+            background-color: #f0f8ff;
+            color: #333;
+            margin: 0;
+            padding: 0;
+            text-align: center;
+        }
+        header {
+            background-color: #ffb6c1;
+            padding: 50px;
+            color: white;
+            border-bottom-left-radius: 50% 20px;
+            border-bottom-right-radius: 50% 20px;
+        }
+        .container {
+            max-width: 800px;
+            margin: auto;
+            padding: 20px;
+        }
+        section {
+            background: white;
+            margin: 20px 0;
+            padding: 20px;
+            border-radius: 20px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+        }
+        h2 { color: #ff69b4; }
+        .gallery img {
+            width: 100%;
+            max-width: 300px;
+            margin: 10px;
+            border-radius: 15px;
+            transition: transform 0.3s;
+        }
+        .gallery img:hover { transform: scale(1.05); }
+        .music-control {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background: #ff69b4;
+            color: white;
+            padding: 10px;
+            border-radius: 50px;
+            cursor: pointer;
+        }
+        ul { list-style: none; padding: 0; }
+        li { margin: 10px 0; font-size: 1.1em; }
+    </style>
+</head>
+<body>
+
+    <header>
+        <h1>🌟 Хүүгийн минь ертөнц 🌟</h1>
+        <p>Хамгийн нандин дурсамжуудын цуглуулга</p>
+    </header>
+
+    <div class="container">
+        <section>
+            <h2>👶 Анх төрсөн түүх</h2>
+            <p>Манай хүү Э.Хөхтөмөр 2024 оны 07 сарын 26-нд, 22:16 минутад анхлан мэндэлж, бидний амьдралд гэрэл гэгээ авчирсан билээ. Анх төрөх үед хөл нь маш сонин нугаларсан байсан нь инээдтэй санагдаад төрөх орон дээр байхдаа хамгийн түрүүнд аавд нь зурагыг нь явуулж үзүүлж байсан.  </p>
+            <p><strong>Анх хэлсэн үг:</strong> "мама-мама" (2026 он 3 сар)</p>
+        </section>
+
+        <section>
+            <h2>🎨 Хобби ба Сонирхол</h2>
+            <ul>
+                <li>🧩 Тоглох дуртай тоглоом: Лего /ямар нэг зүйлийг дээш нь өрөх/, Машин</li>
+                <li>🍎 Идэх дуртай жимс: Алим, Гадил</li>
+                <li>🍜 Дуртай хоол: Будаатай  шөл</li>
+                <li>⚽ Хобби: юманд авирах, ширээн дээр гарах, гангалах</li>
+            </ul>
+        </section>
+
+        <section class="gallery">
+            <h2>📸 Өхөөрдөм зургууд</h2>
+            <img src="baby1.jpg" alt="Зураг 1">
+            <img src="baby2.jpg" alt="Зураг 2">
+            <img src="baby3.jpg" alt="Зураг 3">
+        </section>
+    </div>
+
+    <div class="music-control" onclick="toggleMusic()">🎵 Хөгжим асаах/унтраах</div>
+    <audio id="bgMusic" loop>
+        <source src="music.mp3" type="audio/mpeg">
+        Таны хөтөч дуу дэмжихгүй байна.
+    </audio>
+
+    <script>
+        var music = document.getElementById("bgMusic");
+        function toggleMusic() {
+            if (music.paused) {
+                music.play();
+            } else {
+                music.pause();
+            }
+        }
+        // Хөтчийн дүрмийн дагуу хэрэглэгч нэг удаа дарсны дараа дуу явж эхэлнэ
+        window.addEventListener('click', function() {
+            music.play();
+        }, { once: true });
+    </script>
+
+</body>
+</html>
